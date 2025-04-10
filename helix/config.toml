@@ -1,0 +1,13 @@
+theme = "dark_plus"
+
+[editor]
+line-number = "relative"
+end-of-line-diagnostics = "hint"
+popup-border = "all"
+completion-timeout = 5
+completion-replace = false
+
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+

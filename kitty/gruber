@@ -1,0 +1,41 @@
+# Base colors
+background #181818
+foreground #e4e4ef
+
+# Black
+color0 #232323
+color8 #3f3f3f
+
+# Red
+color1 #f43841
+color9 #fb4934
+
+# Green
+color2 #73c936
+color10 #b8bb26
+
+# Yellow
+color3 #ffdd33
+color11 #655814
+
+# Blue
+color4 #5292c8
+color12 #96a6c8
+
+# Magenta
+color5 #9e95c7
+color13 #f4f4ff
+
+# Cyan
+color6 #95a99f
+color14 #8ec07c
+
+# White
+color7 #f5f5f5
+color15 #ffffff
+
+# Additional colors
+color16 #d65d0e  
+color17 #fe8019  
+color18 #cc8c3c  
+color19 #52494e  
