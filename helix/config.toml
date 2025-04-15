@@ -2,12 +2,21 @@ theme = "cyberdream"
 
 [editor]
 line-number = "relative"
-end-of-line-diagnostics = "hint"
-popup-border = "all"
+continue-comments = false
 completion-timeout = 5
-completion-replace = false
+completion-trigger-len = 2
+popup-border = "all"
 
+[editor.whitespace.render]
+render = ["tab"]
 
-[editor.inline-diagnostics]
-cursor-line = "warning"
+tab = "all"    
+space = "none"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+tab = "."
+
 
