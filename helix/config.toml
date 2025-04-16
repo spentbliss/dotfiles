@@ -7,16 +7,3 @@ completion-timeout = 5
 completion-trigger-len = 2
 popup-border = "all"
 
-[editor.whitespace.render]
-render = ["tab"]
-
-tab = "all"    
-space = "none"
-nbsp = "none"
-nnbsp = "none"
-newline = "none"
-
-[editor.whitespace.characters]
-tab = "."
-
-
