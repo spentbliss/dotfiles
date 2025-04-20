@@ -1,4 +1,4 @@
-theme = "cyberdream"
+theme = "tomorrow-night"
 
 [editor]
 line-number = "relative"
@@ -7,3 +7,7 @@ completion-timeout = 5
 completion-trigger-len = 2
 popup-border = "all"
 
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-base-name", "version-control"]
+right = ["diagnostics", "position", "register"]
