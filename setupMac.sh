@@ -22,6 +22,9 @@ else
     echo "Homebrew is already installed."
 fi
 
+# Disable homebrew analytics
+brew analytics off
+
 # Install programs and fonts
 echo "Installing programs and fonts..."
 brew install python3 btop bat font-input alt-tab kitty helix
@@ -69,8 +72,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Installing oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Disable homebrew analytics
-brew analytics off
 
 echo "Setup complete!"
