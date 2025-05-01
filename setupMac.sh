@@ -27,7 +27,7 @@ brew analytics off
 
 # Install programs and fonts
 echo "Installing programs and fonts..."
-brew install python3 btop bat aerospace alt-tab kitty helix
+brew install python3 btop bat alt-tab kitty helix
 
 # Install Rust if it's not already installed
 if ! command -v rustc &> /dev/null; then
