@@ -1,0 +1,37 @@
+background #1c1c1c
+ foreground #c4c8c5
+ cursor #c4c8c5
+ selection_background #363a41
+ 
+ # black
+ color0 #1c1c1c
+ color8 #767676
+ 
+ # red
+ color1 #d75f87
+ color9 #d75f87
+ 
+ # green
+ color2 #5faf5f
+ color10 #5faf5f
+ 
+ # yellow
+ color3 #af875f
+ color11 #af875f
+ 
+ # blue
+ color4 #5f87af
+ color12 #5f87af
+ 
+ # magenta
+ color5 #af87af
+ color13 #af87af
+ 
+ # cyan 
+ color6 #87afaf
+ color14 #87afaf
+ 
+ # white
+ color7 #fffefe
+ color15 #fffefe
+ selection_foreground #1c1c1c
