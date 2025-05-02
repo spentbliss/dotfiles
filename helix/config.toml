@@ -1,4 +1,4 @@
-theme = "poi"
+theme = "any"
 
 [editor]
 line-number = "relative"

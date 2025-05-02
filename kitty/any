@@ -1,0 +1,44 @@
+# Kitty Terminal Color Scheme: Custom Color Scheme
+
+# Background and foreground colors
+background #181818
+foreground #d6d6dd
+
+# Basic colors
+
+# Black
+color0  #181818  
+color8  #2A2A2A
+
+# Red
+color1  #BF7F88  
+color9  #BF7F88
+
+# Green
+color2  #A7CB7B
+color10 #A7CB7B  
+
+# Yellow
+color3  #E9C78C  
+color11 #E9C78C
+
+# Blue
+color4  #4A90E2
+color12 #4A90E2
+
+# Magenta
+color5  #D78CD0  
+color13 #D78CD0
+
+# Cyan
+color6  #82D2CE  
+color14 #82D2CE
+
+# White
+color7  #6D6D6D  
+color15 #d6d6dd  
+
+# Additional colors for UI elements
+color_background_alt #2A2A2A
+color_background_highlight #3c4048
+
