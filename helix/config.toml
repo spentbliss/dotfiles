@@ -6,6 +6,7 @@ continue-comments = false
 completion-timeout = 5
 completion-trigger-len = 2
 popup-border = "all"
+color-modes = true
 
 [editor.lsp]
 enable = true
