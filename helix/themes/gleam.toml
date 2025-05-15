@@ -102,7 +102,7 @@ hint = "#d9baff"
 "markup.link.text" = "#c8ffa7"
 "markup.link.url" = { fg = "#ffffff", modifiers = ["underlined"] }
 
-"markup.bold" = { fg = "#b181ec", modifiers = ["bold"] }
+"markup.bold" = { fg = "#9ce7ff", modifiers = ["bold"] }
 "markup.italic" = { fg = "#d9baff", modifiers = ["italic"] }
 "markup.strikethrough" = { fg = "#ff4a4a", modifiers = ["crossed_out"] }
 
