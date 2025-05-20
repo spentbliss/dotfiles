@@ -1,4 +1,4 @@
-theme = "any"
+theme = "doom"
 
 [editor]
 line-number = "relative"
