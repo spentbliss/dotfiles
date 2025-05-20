@@ -1,10 +1,9 @@
-# cyberdream theme for helix
 "ui.background" = "fg" 
 "ui.text" = "fg"
 "ui.text.focus" = { bg = "bg_highlight", fg = "cyan" }
 "ui.cursor" = { bg = "magenta", fg = "bg" }
 "ui.linenr" = "grey"
-"ui.statusline" = { fg = "blue" }
+"ui.statusline" = { fg = "baby_blue" }
 "ui.selection" = { bg = "bg_highlight" } 
 "ui.selection.primary" = { bg = "bg_highlight" }  
 "ui.virtual.ruler" = { bg = "bg_highlight" }
@@ -12,12 +11,13 @@
 # Markdown Highlighting
 "markup.raw" = { fg = "magenta", bg = "bg" } 
 "markup.raw.inline" = { fg = "orange" } 
-"markup.heading.1" = "cyan"
-"markup.heading.2" = "magenta"
-"markup.heading.3" = "green"
-"markup.heading.4" = "cyan"
-"markup.heading.5" = "magenta"
-"markup.heading.6" = "green"
+"markup.heading.1" = { fg = "cyan", bg = "#2F4456" }
+"markup.heading.2" = { fg = "magenta", bg = "#6B4E6D" } 
+"markup.heading.3" = { fg = "green", bg = "#3C453D" }
+"markup.heading.4" = { fg = "yellow", bg = "#7A6A5D" }
+"markup.heading.5" = { fg = "orange", bg = "#7A4B3A" }
+"markup.heading.6" = { fg = "cyan", bg = "#2F4456" }
+
 "markup.list" = { fg = "magenta" }
 "markup.bold" = { fg = "orange", modifiers = ["bold"] }
 "markup.italic" = { fg = "orange" }
@@ -26,10 +26,10 @@
 "markup.quote" = { fg = "fg" }
 
 # Syntax Highlighting for Code
-"comment" = { fg = "grey", modifiers = ["italic"] }
-"comment.line" = { fg = "grey", modifiers = ["italic"] }
-"comment.block" = { fg = "grey", modifiers = ["italic"] }
-"comment.documentation" = { fg = "blue", modifiers = ["italic"] }
+"comment" = { fg = "grey" }
+"comment.line" = { fg = "grey" }
+"comment.block" = { fg = "grey" }
+"comment.documentation" = { fg = "blue" }
 
 "keyword" = "cyan"
 "keyword.control" = "cyan"
@@ -42,13 +42,13 @@
 "type.builtin" = "cyan" 
 "type.enum.variant" = "fg"
 
-"function" = "fg"
+"function" = "yellow"
 "function.builtin" = "fg"
-"function.method" = "fg"
+"function.method" = "yellow"
 "function.macro" = "fg"
 
-"variable" = "fg"
-"variable.builtin" = "red"
+"variable" = "purple"
+"variable.builtin" = "fg"
 "variable.parameter" = "fg" 
 
 "string" = "magenta"
@@ -73,11 +73,9 @@
 "ui.cursorline.secondary" = { bg = "bg_alt" }
 "ui.cursorcolumn.primary" = { bg = "bg_highlight" }
 "ui.cursorcolumn.secondary" = { bg = "bg_alt" }
-"ui.statusline.normal" = { fg = "fg", bg = "bg" }
-"ui.statusline.insert" = { fg = "green", bg = "bg" }
-"ui.statusline.select" = { fg = "blue", bg = "bg" }
-"ui.statusline.command" = { fg = "red", bg = "bg" }
-"ui.statusline.visual" = { fg = "magenta", bg = "bg" }
+"ui.statusline.normal" = { fg = "bg", bg = "baby_blue" }
+"ui.statusline.insert" = { fg = "bg", bg = "green" }
+"ui.statusline.select" = { fg = "bg", bg = "magenta" }
 
 # Diagnostic styles
 "warning" = { fg = "yellow", modifiers = ["bold"] }
@@ -110,6 +108,8 @@ cyan = "#82D2CE"
 red = "#BF7F88"
 yellow = "#E9C78C"
 magenta = "#D78CD0"
+purple = "#A899F2"
 orange = "#EFB080" 
 bg_alt = "#2A2A2A"
 bg_highlight = "#3c4048"
+baby_blue = "#94C0F9"
