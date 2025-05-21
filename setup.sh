@@ -77,9 +77,6 @@ fi
 rustup component add rust-analyzer
 cargo install --locked --git https://github.com/Feel-ix-343/markdown-oxide.git markdown-oxide
 
-# Installing oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 echo "Moving specified directories to ~/.config/..."
 mkdir -p ~/.config  
 mv ~/dotfiles/aerospace ~/.config/ 2>/dev/null
@@ -88,6 +85,7 @@ mv ~/dotfiles/kitty ~/.config/ 2>/dev/null
 mv ~/dotfiles/moxide ~/.config/ 2>/dev/null
 mv ~/dotfiles/fonts ~/ 2>/dev/null
 cd 
+
 # Installing oh-my-zsh
 echo "Installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
