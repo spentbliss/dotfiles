@@ -62,7 +62,7 @@ brew analytics off
 echo "Installing programs and fonts..."
 brew install typescript node typescript-language-server vscode-langservers-extracted
 brew install btop bat helix
-brew install --cask kitty alt-tab nikitabobko/tap/aerospace
+brew install --cask kitty alt-tab nikitabobko/tap/aerospace keepassxc
 
 # Installing Rust if it's not already installed
 if ! command -v rustc &> /dev/null; then
