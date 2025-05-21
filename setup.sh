@@ -61,7 +61,7 @@ brew analytics off
 # Install programs and fonts
 echo "Installing programs and fonts..."
 brew install typescript node typescript-language-server vscode-langservers-extracted
-brew install python3 btop bat helix
+brew install btop bat helix
 brew install --cask kitty alt-tab nikitabobko/tap/aerospace
 
 # Installing Rust if it's not already installed
