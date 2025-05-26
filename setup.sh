@@ -57,14 +57,23 @@ fi
 rustup component add rust-analyzer
 cargo install --locked --git https://github.com/Feel-ix-343/markdown-oxide.git markdown-oxide
 
+# Setup tpm for tmux 
+TPM_DIR="$HOME/.config/tmux/plugins/tpm"
+if [ ! -d "$TPM_DIR" ]; then
+    git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+    echo "TPM install complete."
+else
+    echo "TPM is already installed."
+fi
+
 echo "Moving specified directories to ~/.config/..."
 mkdir -p ~/.config  
-mv ~/dotfiles/aerospace ~/.config/ 2>/dev/null
-mv ~/dotfiles/helix ~/.config/ 2>/dev/null
-mv ~/dotfiles/kitty ~/.config/ 2>/dev/null
-mv ~/dotfiles/moxide ~/.config/ 2>/dev/null
-mv ~/dotfiles/tmux ~/.config/ 2>/dev/null
-mv ~/dotfiles/fonts ~/ 2>/dev/null
+mv ~/dotfiles/aerospace ~/.config/ 
+mv ~/dotfiles/helix ~/.config/ 
+mv ~/dotfiles/kitty ~/.config/ 
+mv ~/dotfiles/moxide ~/.config/ 
+mv ~/dotfiles/fonts ~/ 
+mv ~/dotfiles/tmux.conf ~/.config/tmux/ 
 cd 
 
 # Installing oh-my-zsh
