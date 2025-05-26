@@ -38,8 +38,11 @@ brew analytics off
 
 # Install programs and fonts
 echo "Installing programs and fonts..."
-brew install typescript node typescript-language-server vscode-langservers-extracted btop bat helix eza
-brew install --cask kitty alt-tab nikitabobko/tap/aerospace keepassxc raycast 
+brew install tmux typescript node typescript-language-server vscode-langservers-extracted btop bat helix eza
+brew install --cask kitty alt-tab nikitabobko/tap/aerospace keepassxc raycast
+# Tools for tmux theme
+brew install --cask font-monaspace-nerd-font font-noto-sans-symbols-2
+brew install bash bc coreutils gawk gh glab gsed jq nowplaying-cli
 
 # Installing Rust if it's not already installed
 if ! command -v rustc &> /dev/null; then
@@ -60,6 +63,7 @@ mv ~/dotfiles/aerospace ~/.config/ 2>/dev/null
 mv ~/dotfiles/helix ~/.config/ 2>/dev/null
 mv ~/dotfiles/kitty ~/.config/ 2>/dev/null
 mv ~/dotfiles/moxide ~/.config/ 2>/dev/null
+mv ~/dotfiles/tmux ~/.config/ 2>/dev/null
 mv ~/dotfiles/fonts ~/ 2>/dev/null
 cd 
 
