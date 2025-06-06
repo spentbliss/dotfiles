@@ -1,4 +1,4 @@
-theme = "doom"
+theme = "lapis"
 
 [editor]
 line-number = "relative"
@@ -8,11 +8,22 @@ completion-trigger-len = 2
 popup-border = "all"
 color-modes = true
 
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[editor.gutters.line-numbers]
+min-width = 3
+
+[editor.indent-guides]
+render = true
+character = "┊" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 0
+
 [editor.lsp]
 enable = true
 display-messages = false
 auto-signature-help = true
-display-signature-help-docs = false
+display-signature-help-docs = true
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "diagnostics"]
