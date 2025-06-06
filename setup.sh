@@ -73,7 +73,8 @@ mv ~/dotfiles/helix ~/.config/
 mv ~/dotfiles/kitty ~/.config/ 
 mv ~/dotfiles/moxide ~/.config/ 
 mv ~/dotfiles/fonts ~/ 
-mv ~/dotfiles/tmux.conf ~/.config/tmux/ 
+mv ~/dotfiles/tmux.conf ~/.config/tmux/
+mv ~/dotfiles/wallpapers ~/Downloads/
 cd 
 
 echo "Installing oh-my-zsh..."
