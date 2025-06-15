@@ -1,0 +1,144 @@
+# Author: spentbliss <zyhkekrz.hatbox475@passinbox.com>
+# License: MIT (originally by Ethan Schoonover)
+
+"ui.background" = { fg = "base0", bg = "base03" } # file picker border color
+"ui.text" = "base0"
+"ui.text.focus" = { fg = "black", bg = "base0" } # file picker selection
+"ui.cursor" = { bg = "base0", fg = "black" }
+"ui.linenr" = { bg = "base03", fg = "base01" }
+"ui.linenr.selected" = { fg = "yellow", bg = "base03" }
+"ui.statusline" = { fg = "base0", bg = "base03" }
+"ui.selection" = { bg = "base02" }
+"ui.selection.primary" = { bg = "base02" } 
+"ui.virtual.ruler" = { bg = "base02" }
+
+# Syntax Highlighting for Markdown 
+"markup.raw" = { fg = "purple", bg = "base03" } 
+"markup.raw.inline" = {fg = "base0" }
+"markup.heading.1" = { fg = "orange", bg = "base03" } 
+"markup.heading.2" = { fg = "magenta", bg = "base03" }
+"markup.heading.3" = { fg = "green", bg = "base03" }
+"markup.heading.4" = { fg = "purple", bg = "base03" }
+"markup.heading.5" = { fg = "yellow", bg = "base03" }
+"markup.heading.6" = { fg = "blue", bg = "base03" }
+"markup.list" = { fg = "magenta" }
+"markup.bold" = { fg = "orange", modifiers = ["bold"] }
+"markup.italic" = { fg = "base0" }
+"markup.strikethrough" = { fg = "red", modifiers = ["crossed_out"] }
+"markup.link" = { fg = "purple" }
+"markup.quote" = { fg = "base0" }
+
+# Syntax Highlighting for Code
+"comment" = { fg = "base01" }
+"comment.line" = { fg = "base01" }
+"comment.block" = { fg = "base01" }
+"comment.documentation" = { fg = "base01" }
+
+"keyword" = "green"
+"keyword.storage" = "green" # let keyword in rust 
+"keyword.storage.type" = "blue" # keywords describing how things are stored, class, var, let, etc
+"keyword.storage.modifier" = "orange" # mut keyword
+"keyword.control.import" = "magenta" # use keyword in rust
+"keyword.control.export" = "blue" 
+"keyword.control.conditional" = "green" # if, else
+"keyword.directive" = "orange" 
+"keyword.control.repeat" = "green" # for, while, loop
+"keyword.operator" = "green" # or,as in keywords
+"keyword.function" = "green" # function keyword color
+
+"type" = "base0" 
+"type.builtin" = "yellow" # primitive types int, usize
+"type.parameter" = "green"
+"type.enum" = "cyan"
+
+"function" = "blue" # color for function NAME not the keyword fn or func
+"function.builtin" = "blue"
+"function.method" = "blue"
+"function.macro" = "orange"
+
+"variable" = "base0"
+"variable.builtin" = "cyan"
+"variable.parameter" = "base0" # range.to() rust
+
+"string" = "cyan"
+"string.special.path" = "cyan"
+"string.special.url" = "cyan"
+"string.special.symbol" = "cyan"
+
+"constant" = "cyan"
+"constant.builtin" = "cyan" # true, false, nil
+"constant.numeric" = "cyan" # int & float
+"constant.character" = "cyan" # escape character
+
+"operator" = "green"
+
+# html tags
+"tag" = { fg = "blue", modifiers = ["bold"] }
+"attribute" = "yellow"
+
+"namespace" = "base1" # module color python: import socket 
+#"special" = "yellow" # matching text in file picker when typing
+"label" = "red"
+
+# Interface specific
+"ui.cursorline.primary" = { bg = "base02" }
+"ui.cursorline.secondary" = { bg = "base02" }
+"ui.cursorcolumn.primary" = { bg = "base02" }
+"ui.cursorcolumn.secondary" = { bg = "base02" }
+"ui.statusline.normal" = { fg = "white", bg = "base00" }
+"ui.statusline.insert" = { fg = "white", bg = "green" }
+"ui.statusline.select" = { fg = "white", bg = "purple" }
+
+# Diagnostic styles
+"warning" = { fg = "yellow", modifiers = ["bold"] }
+"error" = { fg = "red", modifiers = ["bold"] }
+"info" = { fg = "cyan", modifiers = ["bold"] }
+"hint" = { fg = "blue", modifiers = ["bold"] }
+"diagnostic.error" = { fg = "base01" }
+"diagnostic.warning" = { fg = "base01" }
+"diagnostic.info" = { fg = "base01" }
+"diagnostic.hint" = { fg = "base01" }
+
+# Git changes indicator
+"diff.plus" = "green"
+"diff.plus.gutter" = "green"
+"diff.minus" = "red"
+"diff.minus.gutter" = "red"
+"diff.delta" = "green"
+"diff.delta.gutter" = "green"
+"diff.delta.moved" = "orange"
+"diff.delta.conflict" = "purple"
+
+# Popups and Menus
+"ui.popup" = { fg = "base0", bg = "base03" }
+"ui.popup.info" = { fg = "base0", bg = "base03" }
+"ui.menu" = { fg = "base0", bg = "base03" }
+"ui.menu.selected" = { fg = "black", bg = "base0" }
+
+# Additional overrides
+"ui.virtual.whitespace" = "base02"
+"ui.virtual.indent-guide" = { fg = "indent_style" }
+
+[palette]
+base03 =        "#002b36" # main bg color
+base02 =        "#073642" # bg color for highlighting, and bg_alt 
+base01 =        "#586e75" # fg color for comments / secondary content
+base00 =        "#657b83" 
+base0 =         "#839595" # default fg color for main text like code etc
+base1 =         "#93a1a1" # optional emphasized content
+base2 =         "#eee8d5"
+base3 =         "#fdf6e3"
+white =         "#eee8d5"
+gray =          "#073642"
+black =         "#002b36"
+red =           "#dc322f"
+green =         "#859900"
+yellow =        "#b58900"
+paleblue =      "#586e75"
+cyan =          "#2aa198"
+blue =          "#268bd2"
+purple =        "#6c71c4"
+orange =        "#cb4b16"
+magenta =       "#d33682"
+violet =        "#6c71c4"
+indent_style =  "#294851"

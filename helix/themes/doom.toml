@@ -1,8 +1,12 @@
-"ui.background" = "fg" 
+# Author: spentbliss <zyhkekrz.hatbox475@passinbox.com>
+# License: MIT (originally by NTBBloodbath)
+
+"ui.background" = { bg = "bg", fg = "fg" } 
 "ui.text" = "fg"
 "ui.text.focus" = { bg = "bg_highlight", fg = "cyan" }
 "ui.cursor" = { bg = "cyan", fg = "bg" }
 "ui.linenr" = "grey"
+"ui.linenr.selected" = "yellow"
 "ui.statusline" = { fg = "blue" }
 "ui.selection" = { bg = "bg_highlight" } 
 "ui.selection.primary" = { bg = "bg_highlight" }  
@@ -95,7 +99,7 @@
 
 # Additional overrides
 "ui.virtual.whitespace" = "grey"
-"ui.virtual.indent-guide" = { fg = "grey", style = "dotted" }
+"ui.virtual.indent-guide" = { fg = "grey" }
 
 [palette]
 # bg = "#282C34"
