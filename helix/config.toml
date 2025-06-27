@@ -29,3 +29,19 @@ display-signature-help-docs = true
 left = ["mode", "spinner", "version-control", "diagnostics"]
 center = ["file-base-name"]
 right = ["position", "register"]
+
+# or control each character
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·" # Tabs will look like "→···" (depending on tab width)

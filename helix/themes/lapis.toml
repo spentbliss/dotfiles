@@ -1,7 +1,7 @@
 # Create by spentbliss
 # Source: https://github.com/spentbliss/dotfiles/tree/main/helix/themes
 
-"ui.background" = "fg" # file picker border color
+"ui.background" = { bg = "bg", fg = "fg" } # file picker border color
 "ui.text" = "fg"
 "ui.text.focus" = { fg = "bg", bg = "fg" } # file picker selection
 "ui.cursor" = { bg = "blue", fg = "bg" }
@@ -22,7 +22,6 @@
 "markup.heading.6" = { fg = "cyan", bg = "bg" }
 "markup.list" = { fg = "purple" }
 "markup.bold" = { fg = "fg", modifiers = ["bold"] }
-# "markup.italic" = { fg = "fg" }
 "markup.strikethrough" = { fg = "red", modifiers = ["crossed_out"] }
 "markup.link" = { fg = "cyan" }
 "markup.quote" = { fg = "fg" }
@@ -112,8 +111,8 @@
 "ui.menu.selected" = { fg = "bg", bg = "fg" }
 
 # Additional overrides
-"ui.virtual.whitespace" = "grey"
-"ui.virtual.indent-guide" = { fg = "indent_color", style = "dotted" }
+"ui.virtual.whitespace" = "indent_color"
+"ui.virtual.indent-guide" = { fg = "indent_color" }
 
 [palette]
 bg = "#1B1F27"
@@ -127,4 +126,4 @@ yellow = "#FCD583"
 purple = "#D483FC"
 bg_alt = "#14181D"
 bg_highlight = "#43537A"
-indent_color = "#2E3953"
+indent_color = "#343F50"
