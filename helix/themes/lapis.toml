@@ -13,7 +13,7 @@
 
 # Syntax Highlighting for Markdown 
 "markup.raw" = { fg = "purple", bg = "bg" } 
-"markup.raw.inline" = {fg = "pink" }
+"markup.raw.inline" = {fg = "fg" }
 "markup.heading.1" = { fg = "cyan", bg = "bg"}
 "markup.heading.2" = { fg = "blue", bg = "bg" }
 "markup.heading.3" = { fg = "green", bg = "bg" }
@@ -21,17 +21,17 @@
 "markup.heading.5" = { fg = "yellow", bg = "bg" }
 "markup.heading.6" = { fg = "cyan", bg = "bg" }
 "markup.list" = { fg = "purple" }
-"markup.bold" = { fg = "pink", modifiers = ["bold"] }
-"markup.italic" = { fg = "pink" }
+"markup.bold" = { fg = "fg", modifiers = ["bold"] }
+# "markup.italic" = { fg = "fg" }
 "markup.strikethrough" = { fg = "red", modifiers = ["crossed_out"] }
 "markup.link" = { fg = "cyan" }
 "markup.quote" = { fg = "fg" }
 
 # Syntax Highlighting for Code
-"comment" = { fg = "grey", modifiers = ["italic"] }
-"comment.line" = { fg = "grey", modifiers = ["italic"] }
-"comment.block" = { fg = "grey", modifiers = ["italic"] }
-"comment.documentation" = { fg = "blue", modifiers = ["italic"] }
+"comment" = { fg = "grey" }
+"comment.line" = { fg = "grey" }
+"comment.block" = { fg = "grey" }
+"comment.documentation" = { fg = "blue" }
 
 "keyword" = "blue"
 "keyword.storage" = "blue" # let keyword in rust 
@@ -56,7 +56,7 @@
 
 "variable" = "fg"
 "variable.builtin" = "fg"
-"variable.parameter" = "cyan"
+"variable.parameter" = "fg"
 
 "string" = "green"
 "string.special" = "green"

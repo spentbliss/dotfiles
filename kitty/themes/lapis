@@ -2,6 +2,16 @@ foreground #D6E2FF
 background #1B1F27
 macos_titlebar_color background
 
+# Borders
+active_border_color   #84FCD4
+inactive_border_color #1B2330
+
+# Tabs
+active_tab_foreground   #1B1F27
+active_tab_background   #84FCD4
+inactive_tab_foreground #D6E2FF
+inactive_tab_background #2E3953
+
 # black
 color0 #1D1F28
 color8 #1D1F28
