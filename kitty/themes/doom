@@ -36,14 +36,18 @@ color15 #efefef
 
 cursor #51afef
 cursor_text_color #282c34
+
 url_color #98be65
+
 selection_foreground none
 selection_background #2257a0
-tab_bar_background #16181c
-active_tab_foreground #bbc2cf
-active_tab_background #282c34
-inactive_tab_foreground #5b6268
-inactive_tab_background #1e2127
+
+active_tab_foreground   #191D23
+active_tab_background   #ECBE7B  
+
+inactive_tab_foreground #5B6268  
+inactive_tab_background #3C4048  
+
 active_border_color #51afef
 inactive_border_color #3f444a
 bell_border_color #ecbe7b
