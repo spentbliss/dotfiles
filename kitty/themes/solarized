@@ -2,12 +2,16 @@ foreground #839496
 background #002B36
 macos_titlebar_color background
 
-# Tabs
-# active_tab_foreground   #191D23
-# active_tab_background   #51AFEF
+# Border
+active_border_color     #586E75
+inactive_border_color   #294851
 
-# inactive_tab_foreground #BBC2CF
-# inactive_tab_background #2C303A
+# Tabs
+active_tab_foreground   #191D23
+active_tab_background   #B58900
+
+inactive_tab_foreground #191D23
+inactive_tab_background #93a1a1
 
 # black
 color0 #657b83
