@@ -4,7 +4,7 @@ macos_titlebar_color background
 
 # Border
 active_border_color     #586E75
-inactive_border_color   #294851
+inactive_border_color   #002b36
 
 # Tabs
 active_tab_foreground   #191D23

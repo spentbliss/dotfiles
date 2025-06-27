@@ -49,5 +49,5 @@ inactive_tab_foreground #5B6268
 inactive_tab_background #3C4048  
 
 active_border_color #51afef
-inactive_border_color #3f444a
+inactive_border_color #282c34
 bell_border_color #ecbe7b
