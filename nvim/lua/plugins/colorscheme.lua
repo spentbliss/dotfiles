@@ -1,6 +1,6 @@
 return {
   {
-    "decaycs/decay.nvim",
+    "scottmckendry/cyberdream.nvim",
     lazy = false,
     priority = 1000,
   },
