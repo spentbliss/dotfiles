@@ -7,13 +7,13 @@ if ! command -v brew &> /dev/null; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo "Adding Homebrew to your PATH..."
-    
+
     # Check if the line already exists in .zprofile
     if ! grep -q 'eval "$(/opt/homebrew/bin/brew shellenv)"' /Users/$USERNAME/.zprofile; then
         echo >> /Users/$USERNAME/.zprofile
         echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USERNAME/.zprofile
     fi
-    
+
     source /Users/$USERNAME/.zprofile
 else
     echo "Homebrew is already installed."
@@ -23,13 +23,13 @@ fi
 if ! command -v brew &> /dev/null; then
     echo "Homebrew installation failed or is not callable."
     echo "Attempting to set up the environment."
-    
+
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
     # Checking again if Homebrew is callable
     if ! command -v brew &> /dev/null; then
         echo "Homebrew is still not callable. Please check the installation."
-        exit 1 
+        exit 1
     fi
 fi
 
@@ -38,44 +38,31 @@ brew analytics off
 
 # Install programs and fonts
 echo "Installing programs and fonts..."
-brew install tmux typescript node typescript-language-server vscode-langservers-extracted btop bat helix eza
+brew install vscode-langservers-extracted btop bat helix eza clang-format lua-language-server prettier black
 brew install --cask kitty alt-tab nikitabobko/tap/aerospace keepassxc raycast
-# Tools for tmux theme
-brew install --cask font-monaspace-nerd-font font-noto-sans-symbols-2
-brew install bash bc coreutils gawk gh glab gsed jq nowplaying-cli
 
 # Installing Rust if it's not already installed
 if ! command -v rustc &> /dev/null; then
     echo "Installing Rust..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    source "$HOME/.cargo/env" 
+    source "$HOME/.cargo/env"
 else
     echo "Rust is already installed."
 fi
 
-# Installing Rust LSP & Markdown Oxide
+# Installing Rust LSP
 rustup component add rust-analyzer
-cargo install --locked --git https://github.com/Feel-ix-343/markdown-oxide.git markdown-oxide
 
-# Setup tpm for tmux 
-TPM_DIR="$HOME/.config/tmux/plugins/tpm"
-if [ ! -d "$TPM_DIR" ]; then
-    git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
-    echo "TPM install complete."
-else
-    echo "TPM is already installed."
-fi
-
-echo "Moving specified directories to ~/.config/..."
-mkdir -p ~/.config  
-mv ~/dotfiles/aerospace ~/.config/ 
-mv ~/dotfiles/helix ~/.config/ 
-mv ~/dotfiles/kitty ~/.config/ 
-mv ~/dotfiles/moxide ~/.config/ 
-mv ~/dotfiles/fonts ~/ 
-mv ~/dotfiles/tmux.conf ~/.config/tmux/
+echo "Moving specified directories to ~/.config/ & ~/Downloads/"
+mkdir -p ~/.config
+mv ~/dotfiles/aerospace ~/.config/
+mv ~/dotfiles/nvim ~/.config/
+mv ~/dotfiles/helix ~/.config/
+mv ~/dotfiles/kitty ~/.config/
+mv ~/dotfiles/moxide ~/.config/
+mv ~/dotfiles/fonts ~/Downloads/
 mv ~/dotfiles/wallpapers ~/Downloads/
-cd 
+cd
 
 echo "Installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
