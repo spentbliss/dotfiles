@@ -21,11 +21,11 @@ return {
       },
 
       indent = {
-        enable = false,
+        enable = true,
       },
 
       incremental_selection = {
-        enable = false,
+        enable = true,
       },
     })
   end,
