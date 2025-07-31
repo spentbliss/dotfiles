@@ -15,19 +15,24 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.smartindent = true
 
+-- Vroom
+vim.opt.updatetime = 100
+vim.opt.timeoutlen = 300
+vim.opt.undofile = true
+vim.opt.swapfile = false
+
 -- Highlighting stuff
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+	pattern = "/,?",
+	callback = function()
+		vim.o.hlsearch = true
+	end,
+})
 vim.api.nvim_create_autocmd("CmdlineLeave", {
 	pattern = "/,?",
 	callback = function()
 		vim.schedule(function()
 			vim.o.hlsearch = false
 		end)
-	end,
-})
-
-vim.api.nvim_create_autocmd("CmdlineEnter", {
-	pattern = "/,?",
-	callback = function()
-		vim.o.hlsearch = true
 	end,
 })

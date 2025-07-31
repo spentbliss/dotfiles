@@ -3,17 +3,12 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = { "hrsh7th/cmp-nvim-lsp" },
-
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			vim.diagnostic.config({
-				-- virtual_text = {
-				-- 	prefix = "● ",
-				-- 	spacing = 4,
-				-- },
-				update_in_insert = true,
+				update_in_insert = false, -- Reduce insert mode lag. HEHE
 				severity_sort = true,
 				float = {
 					border = "rounded",
@@ -24,7 +19,6 @@ return {
 			})
 
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-
 			vim.lsp.handlers["textDocument/signatureHelp"] =
 				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
@@ -52,13 +46,13 @@ return {
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {
-							checkOnSave = { command = "clippy" },
-							diagnostics = { experimental = { enable = true } },
+							checkOnSave = { command = "clippy", enable = false },
+							diagnostics = { experimental = { enable = false } },
 						},
 					},
 				},
 				clangd = {
-					cmd = { "clangd", "--background-index", "--clang-tidy" },
+					cmd = { "clangd", "--background-index" },
 					init_options = { clangdFileStatus = true },
 				},
 				lua_ls = {
@@ -74,8 +68,8 @@ return {
 					settings = {
 						python = {
 							analysis = {
-								autoSearchPaths = true,
-								useLibraryCodeForTypes = true,
+								autoSearchPaths = false,
+								useLibraryCodeForTypes = false,
 								diagnosticMode = "openFilesOnly",
 							},
 						},
@@ -89,7 +83,7 @@ return {
 			for server, opts in pairs(servers) do
 				opts.capabilities = capabilities
 				opts.on_attach = on_attach
-				opts.flags = { debounce_text_changes = 150 }
+				opts.flags = { debounce_text_changes = 50 } -- Lower for faster response
 				lspconfig[server].setup(opts)
 			end
 		end,

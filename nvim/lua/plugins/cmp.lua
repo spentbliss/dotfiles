@@ -4,7 +4,6 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"rafamadriz/friendly-snippets",
 			"L3MON4D3/LuaSnip",
@@ -16,7 +15,6 @@ return {
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
 
-			-- Load custom snippets if needed
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			cmp.setup({
@@ -31,24 +29,21 @@ return {
 				},
 				completion = {
 					completeopt = "menu,menuone,noinsert",
-					keyword_length = 2,
+					keyword_length = 3,
 				},
 				performance = {
-					debounce = 150,
-					throttle = 100,
+					debounce = 50,
+					throttle = 50,
+					fetching_timeout = 150,
+					max_view_entries = 15,
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<CR>"] = cmp.mapping.confirm({ select = false }), -- Avoid auto-select
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
 						elseif luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
-						elseif
-							vim.fn.col(".") == 1
-							or vim.fn.getline("."):sub(vim.fn.col(".") - 1, vim.fn.col(".") - 1):match("%s")
-						then
-							fallback()
 						else
 							fallback()
 						end
@@ -64,24 +59,15 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
-					{ name = "buffer" },
+					{ name = "nvim_lsp", max_item_count = 10 },
+					{ name = "luasnip", max_item_count = 5 },
+					{ name = "path", max_item_count = 5 },
 				},
 				formatting = {
 					format = lspkind.cmp_format({
-						mode = "symbol_text",
-						maxwidth = {
-							menu = 50,
-							abbr = 50,
-						},
+						mode = "symbol",
+						maxwidth = 40,
 						ellipsis_char = "...",
-						show_labelDetails = true,
-						before = function(_, vim_item)
-							-- Add any custom modifications here if needed
-							return vim_item
-						end,
 					}),
 				},
 			})
