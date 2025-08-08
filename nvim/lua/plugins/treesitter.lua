@@ -5,7 +5,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
-			ensure_installed = { "markdown", "markdown_inline", "lua", "python", "c", "cpp", "rust", "bash" },
+			ensure_installed = { "markdown", "markdown_inline" },
 
 			highlight = {
 				enable = true,
@@ -22,11 +22,11 @@ return {
 			},
 
 			indent = {
-				enable = true,
+				enable = false,
 			},
 
 			incremental_selection = {
-				enable = true,
+				enable = false,
 			},
 		})
 	end,

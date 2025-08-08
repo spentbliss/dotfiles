@@ -18,8 +18,9 @@ vim.opt.smartindent = true
 -- Vroom
 vim.opt.updatetime = 100
 vim.opt.timeoutlen = 300
-vim.opt.undofile = true
+vim.opt.undofile = false
 vim.opt.swapfile = false
+-- vim.opt.writetimeout = 100
 
 -- Highlighting stuff
 vim.api.nvim_create_autocmd("CmdlineEnter", {
