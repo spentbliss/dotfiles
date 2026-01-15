@@ -14,6 +14,7 @@ vim.pack.add({
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/numToStr/Comment.nvim",
+	"https://github.com/mason-org/mason.nvim",
 })
 
 -- order colorscheme, cmp, lsp, telescope, treesitter
