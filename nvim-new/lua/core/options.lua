@@ -1,3 +1,5 @@
+-- Add border for cmp & more
+vim.opt.winborder = "rounded"
 
 -- Remove annoying startup message
 vim.opt.shortmess:append("I")
