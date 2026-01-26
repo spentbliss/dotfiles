@@ -2,90 +2,118 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "hrsh7th/cmp-nvim-lsp" },
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+		},
 		config = function()
-			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
+			-- Diagnostic config (Nvim 0.12 native way)
 			vim.diagnostic.config({
-				update_in_insert = false, -- Reduce insert mode lag. HEHE
+				virtual_text = {
+					spacing = 4,
+					prefix = "●",
+					source = "if_many",
+				},
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = "󰅙",
+						[vim.diagnostic.severity.WARN] = "",
+						[vim.diagnostic.severity.HINT] = "",
+						[vim.diagnostic.severity.INFO] = "󰋼",
+					},
+				},
+				underline = true,
+				update_in_insert = false,
 				severity_sort = true,
 				float = {
 					border = "rounded",
-					source = "always",
-					header = "",
-					prefix = "",
+					source = "if_many",
+					focusable = false,
 				},
 			})
 
+			-- Bordered handlers
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 			vim.lsp.handlers["textDocument/signatureHelp"] =
-				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+					vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
-			local on_attach = function(client, bufnr)
-				local bufmap = function(mode, lhs, rhs, desc)
-					vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc, silent = true })
-				end
-				bufmap("n", "gd", vim.lsp.buf.definition, "Go to definition")
-				bufmap("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-				bufmap("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
-				bufmap("n", "gr", vim.lsp.buf.references, "Find references")
-				bufmap("n", "K", vim.lsp.buf.hover, "Show hover documentation")
-				bufmap("n", "<leader>k", vim.lsp.buf.signature_help, "Show signature help")
-				bufmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
-				bufmap("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
-				bufmap("n", "<leader>e", vim.diagnostic.open_float, "Show line diagnostics")
-				bufmap("n", "<leader>dl", vim.diagnostic.setloclist, "Diagnostics to location list")
-				bufmap("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
-				bufmap("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentRangeFormattingProvider = false
+			-- LSP keymaps on attach
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+				callback = function(event)
+					local map = function(keys, func, desc)
+						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					end
+					map("gd", vim.lsp.buf.definition, "Goto Definition")
+					map("gr", vim.lsp.buf.references, "Goto References")
+					map("gI", vim.lsp.buf.implementation, "Goto Implementation")
+					map("gy", vim.lsp.buf.type_definition, "Type Definition")
+					map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+					map("<leader>rn", vim.lsp.buf.rename, "Rename")
+					map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
+					map("<leader>cf", function()
+						vim.lsp.buf.format({ async = true })
+					end, "Format")
+					map("K", vim.lsp.buf.hover, "Hover")
+					map("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
+
+					local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+					-- Document highlight
+					if client and client:supports_method("textDocument/documentHighlight") then
+						local hl_group = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							buffer = event.buf,
+							group = hl_group,
+							callback = vim.lsp.buf.document_highlight,
+						})
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							buffer = event.buf,
+							group = hl_group,
+							callback = vim.lsp.buf.clear_references,
+						})
+					end
+
+					-- Inlay hints toggle
+					if client and client:supports_method("textDocument/inlayHint") then
+						map("<leader>th", function()
+							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+						end, "Toggle Inlay Hints")
+					end
+				end,
+			})
+
+			-- Setup capabilities with cmp
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+			if has_cmp then
+				capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
 			end
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-			local servers = {
-				rust_analyzer = {
-					settings = {
-						["rust-analyzer"] = {
-							checkOnSave = { command = "clippy", enable = false },
-							diagnostics = { experimental = { enable = true } },
-						},
-					},
-				},
-				clangd = {
-					cmd = { "clangd", "--background-index" },
-					init_options = { clangdFileStatus = true },
-				},
-				lua_ls = {
-					settings = {
-						Lua = {
-							diagnostics = { globals = { "vim" } },
-							workspace = { checkThirdParty = false },
-							telemetry = { enable = false },
-						},
-					},
-				},
-				pyright = {
-					settings = {
-						python = {
-							analysis = {
-								autoSearchPaths = false,
-								useLibraryCodeForTypes = false,
-								diagnosticMode = "openFilesOnly",
-							},
-						},
-					},
-				},
-				html = {
-					filetypes = { "html" },
-				},
-			}
-
-			for server, opts in pairs(servers) do
-				opts.capabilities = capabilities
-				opts.on_attach = on_attach
-				opts.flags = { debounce_text_changes = 50 } -- Lower for faster response
-				lspconfig[server].setup(opts)
-			end
+			-- Enable LSP servers (reads from lsp/*.lua)
+			vim.lsp.enable({
+				"lua_ls",
+				"pyright",
+				"rust_analyzer",
+				"clangd",
+			})
 		end,
+	},
+	-- Mason: Only load when needed
+	{
+		"williamboman/mason.nvim",
+		cmd = "Mason",
+		keys = { { "<leader>m", "<cmd>Mason<cr>", desc = "Mason" } },
+		build = ":MasonUpdate",
+		opts = {
+			ui = {
+				border = "rounded",
+				icons = {
+					package_installed = "󰗠",
+					package_pending = "󱍷",
+					package_uninstalled = "󰚃",
+				},
+			},
+		},
 	},
 }

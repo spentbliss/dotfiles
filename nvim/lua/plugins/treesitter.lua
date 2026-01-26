@@ -4,11 +4,19 @@ return {
 	priority = 1000,
 	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = { "markdown", "markdown_inline" },
+		require("nvim-treesitter").setup({
+			install_dir = vim.fn.stdpath('data') .. '/site',
 
+			ensure_installed = {
+				"markdown",
+				"markdown_inline",
+				"c",
+				"cpp",
+				"rust",
+				"python",
+			},
 			highlight = {
-				enable = true,
+				enable = false,
 				-- Disable treesitter for big files
 				disable = function(_, buf)
 					local max_filesize = 100 * 1024 -- 100 KB
@@ -22,9 +30,8 @@ return {
 			},
 
 			indent = {
-				enable = false,
+				enable = true,
 			},
-
 			incremental_selection = {
 				enable = false,
 			},
